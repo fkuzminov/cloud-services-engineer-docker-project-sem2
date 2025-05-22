@@ -30,6 +30,13 @@ services:
         limits:
           cpus: '0.4'
           memory: 256M
+    volumes:
+      - nginx-cache:/var/cache/nginx:rw
+      - nginx-run:/var/run:rw
 
 networks:
   momo-network:
+
+volumes:
+    nginx-cache:
+    nginx-run:
