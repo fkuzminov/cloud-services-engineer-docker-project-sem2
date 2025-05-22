@@ -12,8 +12,10 @@ RUN adduser -D -s /sbin/nologin nonroot && \
     mkdir -p /tmp/nginx && \
     sed -i 's|pid .*;|pid /tmp/nginx/nginx.pid;|' /etc/nginx/nginx.conf && \
     chown -R nonroot /var/cache/nginx /var/log/nginx /tmp/nginx
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/dist/index.html /usr/share/nginx/html/index.html
-COPY --from=builder /app/dist /usr/share/nginx/html/momo-store
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 USER nonroot
 EXPOSE 80
