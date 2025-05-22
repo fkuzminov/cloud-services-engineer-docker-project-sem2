@@ -11,7 +11,7 @@ RUN go build \
     -o /out/app ./cmd/api
 
 FROM alpine:3.15
-RUN adduser -D -g '' nonroot
+RUN adduser -D -s /sbin/nologin nonroot
 COPY --from=builder /out/app /app
 RUN chown nonroot:nonroot /app && chmod +x /app
 USER nonroot
