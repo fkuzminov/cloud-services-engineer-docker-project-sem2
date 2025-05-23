@@ -5,7 +5,7 @@ COPY package*.json ./
 RUN npm ci
 COPY . .
 ENV NODE_ENV=production
-ENV VUE_APP_API_URL=/api/v1
+ENV VUE_APP_API_URL=/api
 RUN npm run build
 
 
