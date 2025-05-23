@@ -2,6 +2,7 @@ services:
   backend:
     build:
       context: ./backend
+    image: teodorriyce/docker-project-backend:latest
     container_name: momo-backend
     restart: unless-stopped
     ports:
@@ -17,6 +18,7 @@ services:
   frontend:
     build:
       context: ./frontend
+    image: teodorriyce/docker-project-frontend:latest
     container_name: momo-frontend
     restart: unless-stopped
     ports:
